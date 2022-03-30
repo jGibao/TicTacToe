@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Tic Tac Toe</h1>
+    <h2 id="playerDisplay">Player:</h2>
+    <div class="container">
+        <div class="grid">
+            <div class="cell" id="0,0" onclick="gameManager.playTurn(0,0)"></div>
+            <div class="cell" id="1,0" onclick="gameManager.playTurn(1,0)"></div>
+            <div class="cell" id="2,0" onclick="gameManager.playTurn(2,0)"></div>
+            <div class="cell" id="0,1" onclick="gameManager.playTurn(0,1)"></div>
+            <div class="cell" id="1,1" onclick="gameManager.playTurn(1,1)"></div>
+            <div class="cell" id="2,1" onclick="gameManager.playTurn(2,1)"></div>
+            <div class="cell" id="0,2" onclick="gameManager.playTurn(0,2)"></div>
+            <div class="cell" id="1,2" onclick="gameManager.playTurn(1,2)"></div>
+            <div class="cell" id="2,2" onclick="gameManager.playTurn(2,2)"></div>
+        </div>
+    </div>
+    <button onclick="gameManager.reset()">New Game</button>
+</body>
+<script src="scripts.js"></script>
+
+</html>
