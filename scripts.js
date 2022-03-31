@@ -50,31 +50,35 @@ function createPlayer(id, name) {
 
 const gameManager = (() => {
     let playerTurn = 1;
+    let hasWon = false;
+    let hasNames = false;
 
-    const startGame = () => {
-        playerOne = createPlayer(1, "Jonh");
-        playerTwo = createPlayer(2, "Peter");
-        console.log("Criados");
+    const startGame = (function() {
+        playerOne = createPlayer(1, document.getElementById("playerOneName").value);
+        playerTwo = createPlayer(2, document.getElementById("playerTwoName").value);
+        console.log(document.getElementById("playerOneName").value);
         document.getElementById("playerDisplay").textContent = `Player: ${playerOne.getName()}`;
-    };
+        document.getElementById("playerForm").remove();
+        hasNames = true;
+    });
 
     const playTurn = (positionX, positionY) => {
-        console.log(positionX + " " + positionY);
-        console.log(gameBoard.getArrayPos(positionX, positionY));
-        if (playerTurn == 1 && gameBoard.getArrayPos(positionX, positionY) == "-") {
-            gameBoard.insertX(positionX, positionY);
-            document.getElementById(positionX + "," + positionY).textContent = "X";
-            document.getElementById("playerDisplay").textContent = `Player: ${playerTwo.getName()}`;
-            playerTurn = 2;
-        } else if (playerTurn == 2 && gameBoard.getArrayPos(positionX, positionY) == "-") {
-            gameBoard.insertO(positionX, positionY);
-            document.getElementById(positionX + "," + positionY).textContent = "O";
-            document.getElementById("playerDisplay").textContent = `Player: ${playerOne.getName()}`;
-            playerTurn = 1;
-        }
+        if (hasWon == false && hasNames == true) {
+            if (playerTurn == 1 && gameBoard.getArrayPos(positionX, positionY) == "-") {
+                gameBoard.insertX(positionX, positionY);
+                document.getElementById(positionX + "," + positionY).textContent = "X";
+                document.getElementById("playerDisplay").textContent = `Player: ${playerTwo.getName()}`;
+                playerTurn = 2;
+            } else if (playerTurn == 2 && gameBoard.getArrayPos(positionX, positionY) == "-") {
+                gameBoard.insertO(positionX, positionY);
+                document.getElementById(positionX + "," + positionY).textContent = "O";
+                document.getElementById("playerDisplay").textContent = `Player: ${playerOne.getName()}`;
+                playerTurn = 1;
+            }
 
-        if (checkWin() != null) {
-            displayWinner(checkWin());
+            if (checkWin() != null) {
+                displayWinner(checkWin());
+            }
         }
     };
 
@@ -106,6 +110,11 @@ const gameManager = (() => {
         if (gameBoard.getArrayPos(0, 2) == "O" && gameBoard.getArrayPos(1, 1) == "O" && gameBoard.getArrayPos(2, 0) == "O") {
             winner = "O";
         }
+        if (winner != null) {
+            hasWon = true;
+        }
+
+
         return winner;
     }
 
@@ -120,10 +129,9 @@ const gameManager = (() => {
         document.body.appendChild(winnerText);
     }
 
-    function reset() {
+    const reset = (function() {
         location.reload();
-
-    }
+    });
 
     return {
         startGame,
@@ -131,8 +139,6 @@ const gameManager = (() => {
         reset
     };
 })();
-
-gameManager.startGame();
 
 // gameBoard.sub(6, 2); // 4
 // gameBoard.mul(14, 5534); // 77476
