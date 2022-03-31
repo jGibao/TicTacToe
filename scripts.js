@@ -126,7 +126,7 @@ const gameManager = (() => {
         if (winner == "O") {
             winnerText.textContent = `The winner is: ${playerTwo.getName()}`;
         }
-        document.body.appendChild(winnerText);
+        document.getElementById("wrapper").appendChild(winnerText);
     }
 
     const reset = (function() {

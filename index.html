@@ -10,27 +10,31 @@
 </head>
 
 <body>
-    <h1>Tic Tac Toe</h1>
-    <form id="playerForm">
-        <input type="text" id="playerOneName" placeholder="Insert Player One Name">
-        <input type="text" id="playerTwoName" placeholder="Insert Player Two Name">
-        <button type="button" id="startButton" onclick="gameManager.startGame()">Start Game!</button>
-    </form>
-    <h2 id="playerDisplay">Player:</h2>
-    <div class="container">
-        <div class="grid">
-            <div class="cell" id="0,0" onclick="gameManager.playTurn(0,0)"></div>
-            <div class="cell" id="1,0" onclick="gameManager.playTurn(1,0)"></div>
-            <div class="cell" id="2,0" onclick="gameManager.playTurn(2,0)"></div>
-            <div class="cell" id="0,1" onclick="gameManager.playTurn(0,1)"></div>
-            <div class="cell" id="1,1" onclick="gameManager.playTurn(1,1)"></div>
-            <div class="cell" id="2,1" onclick="gameManager.playTurn(2,1)"></div>
-            <div class="cell" id="0,2" onclick="gameManager.playTurn(0,2)"></div>
-            <div class="cell" id="1,2" onclick="gameManager.playTurn(1,2)"></div>
-            <div class="cell" id="2,2" onclick="gameManager.playTurn(2,2)"></div>
+    <div id="wrapper">
+        <h1>Tic Tac Toe</h1>
+        <form id="playerForm">
+            <input type="text" id="playerOneName" placeholder="Insert Player One Name">
+            <input type="text" id="playerTwoName" placeholder="Insert Player Two Name">
+            <button type="button" id="startButton" onclick="gameManager.startGame()">Start Game!</button>
+        </form>
+        <h2 id="playerDisplay">Player:</h2>
+        <div class="container">
+            <div class="grid">
+                <div class="cell" id="0,0" onclick="gameManager.playTurn(0,0)"></div>
+                <div class="cell" id="1,0" onclick="gameManager.playTurn(1,0)"></div>
+                <div class="cell" id="2,0" onclick="gameManager.playTurn(2,0)"></div>
+                <div class="cell" id="0,1" onclick="gameManager.playTurn(0,1)"></div>
+                <div class="cell" id="1,1" onclick="gameManager.playTurn(1,1)"></div>
+                <div class="cell" id="2,1" onclick="gameManager.playTurn(2,1)"></div>
+                <div class="cell" id="0,2" onclick="gameManager.playTurn(0,2)"></div>
+                <div class="cell" id="1,2" onclick="gameManager.playTurn(1,2)"></div>
+                <div class="cell" id="2,2" onclick="gameManager.playTurn(2,2)"></div>
+            </div>
         </div>
+        <button onclick="gameManager.reset()">New Game</button>
+        <div class="footer">Programado por jGibao</div>
     </div>
-    <button onclick="gameManager.reset()">New Game</button>
+
 </body>
 
 

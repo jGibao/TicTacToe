@@ -1,3 +1,17 @@
+#wrapper {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 960px;
+    min-width: 660px;
+    padding-right: 10px;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: append-animate .3s linear;
+}
+
 .container {
     background: black;
     display: inline-block;
@@ -20,10 +34,28 @@
     font-size: 3rem;
     font-weight: bold;
     background: white;
+    transition: 0.5s;
+}
+
+.cell:hover {
+    background-color: rgb(194, 194, 194);
+    transition: 0.5s;
 }
 
 h1 {
     font-family: 'Courier New', Courier, monospace;
+    animation: append-animate .3s linear;
+}
+
+@keyframes append-animate {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 h2 {
@@ -32,4 +64,18 @@ h2 {
 
 button {
     font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
+}
+
+.footer {
+    display: flex;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    width: 350px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
